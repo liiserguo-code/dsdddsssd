@@ -12,7 +12,8 @@ export async function POST(req: NextRequest) {
 "), {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${ggck_live_6e616e917a588e7d7291f4c1491b8d67e02f27a558fcc420215c53ca18490949}`,
+        Authorization: `Bearer ${GG_CHECKOUT_API_KEY.
+ggck_live_6e616e917a588e7d7291f4c1491b8d67e02f27a558fcc420215c53ca18490949}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
