@@ -9,10 +9,10 @@ export async function POST(req: NextRequest) {
     }
 
     const response = await fetch("POST https://api.ggcheckout.com/v1/transactions
-", {
+"), {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.ggck_live_6e616e917a588e7d7291f4c1491b8d67e02f27a558fcc420215c53ca18490949}`,
+        Authorization: `Bearer ${ggck_live_6e616e917a588e7d7291f4c1491b8d67e02f27a558fcc420215c53ca18490949}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
