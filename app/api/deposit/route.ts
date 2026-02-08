@@ -1,4 +1,34 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from "next/server";
+
+export async function POST(req: NextRequest) {
+  try {
+    const { amount } = await req.json();
+
+    if (!amount) {
+      return NextResponse.json({ error: "Valor inválido" }, { status: 400 });
+    }
+
+    const response = await fetch("POST https://api.ggcheckout.com/v1/transactions
+", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.ggck_live_6e616e917a588e7d7291f4c1491b8d67e02f27a558fcc420215c53ca18490949}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: amount,
+        paymentMethod: "pix"
+      }),
+    });
+
+    const data = await response.json();
+
+    return NextResponse.json(data);
+
+  } catch (error) {
+    return NextResponse.json({ error: "Erro ao criar pagamento" }, { status: 500 });
+  }
+}
 
 export interface DepositRequest {
   userId: string
